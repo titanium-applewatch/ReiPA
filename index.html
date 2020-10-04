@@ -13,10 +13,25 @@
                 
                     </script>
                 <style>
+                    :root {
+                        --main-text: #333;
+                        --main-bg: #fff;
+                    }
+                @media (prefers-color-scheme: dark) {
+                    :root {
+                        --main-text: #ddd;
+                        --main-bg: #000;
+                    }
+                }
+                
+                body {
+                    color: var(--main-text);
+                    background-color: var(--main-bg);
                     font-family: sans-serif;
                     text-align: center;
                     word-wrap: break-word;
-                    </style>
+                }
+                </style>
                 </head>
     <body>
         <h1>ReiPA</h1>
