@@ -3,8 +3,31 @@
     <head>
         <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
-                <title>ReiPA</title>
+                <title>Re AdHoc</title>
                 <script type="text/javascript" charset="utf-8">
+                    const formInputs = document.getElementsByClassName("file");
+                    const length = formInputs.length;
+                    for (let i = 0; i < length; i++) {
+                        formInputs[i].onchange = function () {
+                            const file = this.files[0].name;
+                            const label = this.nextElementSibling;
+                            if (!label.classList.contains("changed")) {
+                                const span = document.createElement("span");
+                                span.className = "filename";
+                                this.parentNode.appendChild(span);
+                                label.classList.add("changed");
+                            }
+                            label.nextElementSibling.innerHTML = file;
+                        };
+                    }
+                
+                
+                if (window.File) {
+                    //window.alert("File APIが実装されてます。");
+                } else {
+                    window.alert("Error: Web File API is not available in this browser.");
+                }
+                
                     </script>
                 <style>
                     :root {
@@ -27,23 +50,75 @@
                     transition: .5s;
                 }
                 .title {
-                    line-height: 1;
+                    line-height: 1.2;
                 }
                 .titletext {
-                    font-size: xx-large;
+                    font-size: 4.5rem;
                     font-weight:900;
                 }
                 .subtitle {
-                    font-size: large;
+                    font-size: 1.8rem;
                     font-weight:800;
+                }
+                .import {
+                    display: inline-block;
+                }
+                #input {
+                    background: #39f;
+                    color: white;
+                    font-size: 0.8rem;
+                    padding: 8px 10px;
+                    border-radius: 4px;
+                    display: inline-block;
+                    position: relative;
+                    cursor: pointer;
+                    margin-right: 8px;
+                }
+                
+                .form__file input[type="file"] {
+                    display: none;
+                }
+                .form__file label {
+                    background: #39f;
+                    color: white;
+                    font-size: 1.2rem;
+                    font-weight:800;
+                    padding: 8px 10px;
+                    border-radius: 4px;
+                    display: inline-block;
+                    position: relative;
+                    cursor: pointer;
+                    margin-right: 8px;
+                }
+                .form__file label:hover {
+                    opacity: 0.7;
+                    transition: 0.3s ease-out;
+                }
+                .form__file {
+                    margin: 10px;
+                }
+                .image {
+                    position: relative;
+                }
+                .image .ipa {
+                      width: 10rem;
                 }
                 </style>
                 </head>
     <body>
         <div class="title">
-            <div class="titletext">ReiPA</div>
-            <div class="subtitle">Change the UDID of AdHoc.</h3>
+            <div class="titletext">Re AdHoc</div>
+            <div class="subtitle">Change the UDID of AdHoc. </div>
         </div>
+        <form class="form" action="#">
+            <div class="form__file">
+                <input class="file" type="file" name="image" accept=".ipa" id="image1" />
+                <label for="image1">Select File</label>
+            </div>
+        </form>
+        <div class="image">
+            <img src="ipa.png" class="ipa">
+                </div>
     </body>
 </html>
 </body>
