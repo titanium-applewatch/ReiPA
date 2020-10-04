@@ -21,7 +21,6 @@
                         };
                     }
                 
-                
                 if (window.File) {
                     //window.alert("File APIが実装されてます。");
                 } else {
@@ -31,26 +30,39 @@
                     </script>
                 <style>
                     :root {
-                        --main-text: #333;
-                        --main-bg: #fff;
+                        --main-text: #efefef;
+                        --main-bg: #3cad7e;
+                        --form-bg: #ffffff;
+                        --input-button-bg: #39f;
+                        --input-button-text: #fff;
                     }
                 @media (prefers-color-scheme: dark) {
                     :root {
-                        --main-text: #ddd;
-                        --main-bg: #111;
+                        --main-text: #bbb;
+                        --main-bg: rgb(18,18,20);
+                        --form-bg: rgb(8,8,10);
+                        --input-button-bg: #28d;
+                        --input-button-text: #ddd;
                     }
                 }
                 
                 body {
+                    height: 100%;
+                    width: 100%;
+                    font-family: 'SF-Pro','Arial', sans-serif;
                     color: var(--main-text);
                     background-color: var(--main-bg);
-                    font-family: sans-serif;
                     text-align: center;
                     word-wrap: break-word;
                     transition: .5s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
                 }
                 .title {
                     line-height: 1.2;
+                    margin-bottom: 15px;
                 }
                 .titletext {
                     font-size: 4.5rem;
@@ -63,24 +75,15 @@
                 .import {
                     display: inline-block;
                 }
-                #input {
-                    background: #39f;
-                    color: white;
-                    font-size: 0.8rem;
-                    padding: 8px 10px;
-                    border-radius: 4px;
+                .mainform {
                     display: inline-block;
-                    position: relative;
-                    cursor: pointer;
-                    margin-right: 8px;
                 }
-                
                 .form__file input[type="file"] {
                     display: none;
                 }
-                .form__file label {
-                    background: #39f;
-                    color: white;
+                .inputbutton {
+                    background: var(--input-button-bg);
+                    color: var(--input-button-text);
                     font-size: 1.2rem;
                     font-weight:800;
                     padding: 8px 10px;
@@ -94,32 +97,58 @@
                     opacity: 0.7;
                     transition: 0.3s ease-out;
                 }
-                .form__file {
-                    margin: 10px;
+                * {
+                    box-sizing: border-box;
                 }
-                .image {
+                
+                .container h1 {
+                    color: #fff;
+                    text-transform: uppercase;
+                    text-align: center;
+                    font-size: 50px;
+                }
+                
+                .nice-wrap {
                     position: relative;
+                    width: 500px;
+                    margin: 0 auto;
+                    margin-bottom: 20px;
                 }
-                .image .ipa {
-                      width: 10rem;
+                
+                .nice-textbox {
+                    position: relative;
+                    display: block;
+                    width: 500px;
+                    padding: 15px;
+                    border: none;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    color: #a0a0a0;
+                    outline: none;
+                    background: var(--form-bg);
                 }
                 </style>
                 </head>
     <body>
-        <div class="title">
-            <div class="titletext">Re AdHoc</div>
-            <div class="subtitle">Change the UDID of AdHoc. </div>
-        </div>
-        <form class="form" action="#">
+        <div class="main">
+            <div class="title">
+                <div class="titletext">Re AdHoc</div>
+                <div class="subtitle">Change the UDID of AdHoc. </div>
+            </div>
+            <form class="form" action="#">
+                <div class="container">
+                    <div class="nice-wrap">
+                        <input class="nice-textbox" type="text" placeholder="UDID"/>
+                    </div>
+                </div>
+            </form>
             <div class="form__file">
                 <input class="file" type="file" name="image" accept=".ipa" id="image1" />
-                <label for="image1">Select File</label>
+                <label class="inputbutton" for="image1">Select File</label>
             </div>
-        </form>
-        <div class="image">
-            <img src="ipa.png" class="ipa">
-                </div>
+        </div>
     </body>
 </html>
-</body>
-</html>
+
+<!-- license -->
+<!-- https://codepen.io/stefcharle/pen/JKxgxm -->
