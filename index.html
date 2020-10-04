@@ -5,12 +5,13 @@
             <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
                 <title>ReiPA</title>
                 <script type="text/javascript" charset="utf-8">
-                    document.addEventListener("deviceready", onDeviceReady, false);
-                    function onDeviceReady() {
-                        var element = document.getElementById('deviceProperties');
-                        'UUID: '     + device.uuid     + '<br />'
+                    const isIPad = /iPad|Macintosh/i.test(navigator.userAgent)
+                    && 'ontouchend' in document
+                    if(isIPad){
+                      console.info('iPadからのアクセスです')
+                    } else {
+                      console.info('iPadからのアクセスじゃないです')
                     }
-                
                     </script>
                 <style>
                     :root {
@@ -35,6 +36,6 @@
                 </head>
     <body>
         <h1>ReiPA</h1>
-        <h3>iPhone only. Website only.You can install ipa.</h3>
+        <h3>iPhone only.<br>Website only.<br>You can install ipa.</h3>
     </body>
 </html>
