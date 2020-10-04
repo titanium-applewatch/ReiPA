@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
-  <title>ReiPA</title>
-  <script type="text/javascript" charset="utf-8">
-      window.addEventListener("load", function(){
-      document.addEventListener("deviceready", function(){
-      var uID = device.uuid;
-      document.getElementById("result").innerHTML = uID;
-      }, false);
-      }, true);
-      </script>
-</head>
-<body style="font-family: sans-serif;text-align: center;">
-    <h1>ReiPA</h1>
-    <h3>iPhone only. Website only. You can install ipa.</h3>
-    <h4>UDID:<span id="result"> ---</span></h4>
-</body>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+                <title>ReiPA</title>
+                <script type="text/javascript" charset="utf-8">
+                    document.addEventListener("deviceready", onDeviceReady, false);
+                    function onDeviceReady() {
+                        var element = document.getElementById('deviceProperties');
+                        'UUID: '     + device.uuid     + '<br />'
+                    }
+                
+                    </script>
+    </head>
+    <body style="font-family: sans-serif;text-align: center;word-wrap: break-word;">
+        <h1>ReiPA</h1>
+        <h3>iPhone only. Website only.You can install ipa.</h3>
+        <h4><p id="deviceProperties">-----</p></h4>
+    </body>
 </html>
