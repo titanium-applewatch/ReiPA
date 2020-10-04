@@ -2,133 +2,134 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
-                <title>Re AdHoc</title>
-                <script type="text/javascript" charset="utf-8">
-                    const formInputs = document.getElementsByClassName("file");
-                    const length = formInputs.length;
-                    for (let i = 0; i < length; i++) {
-                        formInputs[i].onchange = function () {
-                            const file = this.files[0].name;
-                            const label = this.nextElementSibling;
-                            if (!label.classList.contains("changed")) {
-                                const span = document.createElement("span");
-                                span.className = "filename";
-                                this.parentNode.appendChild(span);
-                                label.classList.add("changed");
-                            }
-                            label.nextElementSibling.innerHTML = file;
-                        };
+            <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+                <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+                    <title>Re AdHoc</title>
+                    <script type="text/javascript" charset="utf-8">
+                        const formInputs = document.getElementsByClassName("file");
+                        const length = formInputs.length;
+                        for (let i = 0; i < length; i++) {
+                            formInputs[i].onchange = function () {
+                                const file = this.files[0].name;
+                                const label = this.nextElementSibling;
+                                if (!label.classList.contains("changed")) {
+                                    const span = document.createElement("span");
+                                    span.className = "filename";
+                                    this.parentNode.appendChild(span);
+                                    label.classList.add("changed");
+                                }
+                                label.nextElementSibling.innerHTML = file;
+                            };
+                        }
+                    
+                    if (window.File) {
+                        //window.alert("File APIが実装されてます。");
+                    } else {
+                        window.alert("Error: Web File API is not available in this browser.");
                     }
-                
-                if (window.File) {
-                    //window.alert("File APIが実装されてます。");
-                } else {
-                    window.alert("Error: Web File API is not available in this browser.");
-                }
-                
-                    </script>
-                <style>
-                    :root {
-                        --main-text: #efefef;
-                        --main-bg: #3cad7e;
-                        --form-bg: #ffffff;
-                        --input-button-bg: #39f;
-                        --input-button-text: #fff;
+                    
+                        </script>
+                    <style>
+                        :root {
+                            --main-text: #efefef;
+                            --main-bg: #3cad7e;
+                            --form-bg: #ffffff;
+                            --input-button-bg: #39f;
+                            --input-button-text: #fff;
+                        }
+                    @media (prefers-color-scheme: dark) {
+                        :root {
+                            --main-text: #bbb;
+                            --main-bg: rgb(18,18,20);
+                            --form-bg: rgb(8,8,10);
+                            --input-button-bg: #28d;
+                            --input-button-text: #ddd;
+                        }
                     }
-                @media (prefers-color-scheme: dark) {
-                    :root {
-                        --main-text: #bbb;
-                        --main-bg: rgb(18,18,20);
-                        --form-bg: rgb(8,8,10);
-                        --input-button-bg: #28d;
-                        --input-button-text: #ddd;
+                    
+                    body {
+                        max-width: 100%;
+                        font-family: 'SF-Pro','Arial', sans-serif;
+                        color: var(--main-text);
+                        background-color: var(--main-bg);
+                        text-align: center;
+                        word-wrap: break-word;
+                        transition: .5s;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        position: relative;
                     }
-                }
-                
-                body {
-                    max-width: 100%;
-                    font-family: 'SF-Pro','Arial', sans-serif;
-                    color: var(--main-text);
-                    background-color: var(--main-bg);
-                    text-align: center;
-                    word-wrap: break-word;
-                    transition: .5s;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    position: relative;
-                }
-                .title {
-                    line-height: 1.2;
-                    margin-bottom: 15px;
-                }
-                .titletext {
-                    font-size: 4rem;
-                    font-weight:900;
-                }
-                .subtitle {
-                    font-size: 1.5rem;
-                    font-weight:800;
-                }
-                .import {
-                    display: inline-block;
-                }
-                .mainform {
-                    display: inline-block;
-                }
-                .form__file input[type="file"] {
-                    display: none;
-                }
-                .inputbutton {
-                    background: var(--input-button-bg);
-                    color: var(--input-button-text);
-                    font-size: 1.2rem;
-                    font-weight:800;
-                    padding: 8px 10px;
-                    border-radius: 4px;
-                    display: inline-block;
-                    position: relative;
-                    cursor: pointer;
-                    margin-right: 8px;
-                }
-                .form__file label:hover {
-                    opacity: 0.7;
-                    transition: 0.3s ease-out;
-                }
-                * {
-                    box-sizing: border-box;
-                }
-                
-                .container h1 {
-                    color: #fff;
-                    text-transform: uppercase;
-                    text-align: center;
-                    font-size: 50px;
-                }
-                
-                .nice-wrap {
-                    position: relative;
-                    width: 500px;
-                    margin: 0 auto;
-                    margin-bottom: 20px;
-                }
-                
-                .nice-textbox {
-                    position: relative;
-                    display: inline-block;
-                    width: 70%;
-                    max-width: 500px;
-                    padding: 15px;
-                    border: none;
-                    border-radius: 5px;
-                    font-size: 16px;
-                    color: #a0a0a0;
-                    outline: none;
-                    background: var(--form-bg);
-                }
-                </style>
-                </head>
+                    .title {
+                        line-height: 1.2;
+                        margin-bottom: 15px;
+                    }
+                    .titletext {
+                        font-size: 4rem;
+                        font-weight:900;
+                    }
+                    .subtitle {
+                        font-size: 1.5rem;
+                        font-weight:800;
+                    }
+                    .import {
+                        display: inline-block;
+                    }
+                    .mainform {
+                        display: inline-block;
+                    }
+                    .form__file input[type="file"] {
+                        display: none;
+                    }
+                    .inputbutton {
+                        background: var(--input-button-bg);
+                        color: var(--input-button-text);
+                        font-size: 1.2rem;
+                        font-weight:800;
+                        padding: 8px 10px;
+                        border-radius: 4px;
+                        display: inline-block;
+                        position: relative;
+                        cursor: pointer;
+                        margin-right: 8px;
+                    }
+                    .form__file label:hover {
+                        opacity: 0.7;
+                        transition: 0.3s ease-out;
+                    }
+                    * {
+                        box-sizing: border-box;
+                    }
+                    
+                    .container h1 {
+                        color: #fff;
+                        text-transform: uppercase;
+                        text-align: center;
+                        font-size: 50px;
+                    }
+                    
+                    .nice-wrap {
+                        position: relative;
+                        width: 500px;
+                        margin: 0 auto;
+                        margin-bottom: 20px;
+                    }
+                    
+                    .nice-textbox {
+                        position: relative;
+                        display: inline-block;
+                        width: 70%;
+                        max-width: 500px;
+                        padding: 15px;
+                        border: none;
+                        border-radius: 5px;
+                        font-size: 16px;
+                        color: #a0a0a0;
+                        outline: none;
+                        background: var(--form-bg);
+                    }
+                    </style>
+                    </head>
     <body>
         <div class="main">
             <div class="title">
@@ -144,7 +145,7 @@
             </form>
             <div class="form__file">
                 <input class="file" type="file" name="image" accept=".ipa" id="image1" />
-                <label class="inputbutton" for="image1">Upload</label>
+                <label class="inputbutton" for="image1"><i class="fas fa-upload"></i> Upload</label>
             </div>
         </div>
     </body>
