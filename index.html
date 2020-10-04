@@ -4,15 +4,6 @@
         <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
                 <title>ReiPA</title>
-                <script type="text/javascript" charset="utf-8">
-                    const isIPad = /iPad|Macintosh/i.test(navigator.userAgent)
-                    && 'ontouchend' in document
-                    if(isIPad){
-                      console.info('iPadからのアクセスです')
-                    } else {
-                      console.info('iPadからのアクセスじゃないです')
-                    }
-                    </script>
                 <style>
                     :root {
                         --main-text: #333;
@@ -37,6 +28,42 @@
                 </head>
     <body>
         <h1>ReiPA</h1>
-        <h3>iPhone only. Website only.<br>You can install ipa.</h3>
+        <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+                <title>ReiPA</title>
+                <script type="text/javascript" charset="utf-8">
+                    </script>
+                <style>
+                    :root {
+                        --main-text: #333;
+                        --main-bg: #fff;
+                    }
+                @media (prefers-color-scheme: dark) {
+                    :root {
+                        --main-text: #ddd;
+                        --main-bg: #111;
+                    }
+                }
+                
+                body {
+                    color: var(--main-text);
+                    background-color: var(--main-bg);
+                    font-family: sans-serif;
+                    text-align: center;
+                    word-wrap: break-word;
+                    transition: .5s;
+                }
+                </style>
+                </head>
+    <body>
+        <h1>ReiPA</h1>
+        <h3>Change the UDID of AdHoc.</h3>
+        <div id="device"></div>
+    </body>
+</html>
+
     </body>
 </html>
